@@ -119,7 +119,7 @@
        persistent, and doesn't work with replication.
     -->
   <directoryFactory name="DirectoryFactory" class="solr.HdfsDirectoryFactory">
-   <str name="solr.hdfs.home">hdfs://hdfsHost:9000/user/solr</str>
+   <str name="solr.hdfs.home">hdfs://hdfsHost:9000/solr</str>
    <bool name="solr.hdfs.blockcache.enabled">true</bool>
    <int name="solr.hdfs.blockcache.slab.count">1</int>
    <bool name="solr.hdfs.blockcache.direct.memory.allocation">true</bool>
