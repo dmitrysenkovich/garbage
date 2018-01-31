@@ -3,6 +3,22 @@
  <uniqueKey>id</uniqueKey>
  <fieldType name="string" class="solr.StrField" sortMissingLast="true" />
  <fieldType name="long" class="solr.TrieLongField" precisionStep="0" positionIncrementGap="0"/>
+ <fieldType name="text_general" class="solr.TextField" positionIncrementGap="100">
+   <analyzer type="index">
+     <tokenizer class="solr.StandardTokenizerFactory"/>
+     <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt" />
+     <!-- in this example, we will only use synonyms at query time
+     <filter class="solr.SynonymFilterFactory" synonyms="index_synonyms.txt" ignoreCase="true" expand="false"/>
+     -->
+     <filter class="solr.LowerCaseFilterFactory"/>
+   </analyzer>
+   <analyzer type="query">
+     <tokenizer class="solr.StandardTokenizerFactory"/>
+     <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt" />
+     <filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
+     <filter class="solr.LowerCaseFilterFactory"/>
+   </analyzer>
+ </fieldType>
  <field name="_version_" type="long" indexed="true" stored="true" multiValued="false" />
  <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" /> 
  <field name="cat" type="string" indexed="true" stored="true"/>
