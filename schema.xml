@@ -2,6 +2,7 @@
 <schema name="cats">
  <uniqueKey>id</uniqueKey>
  <fieldType name="string" class="solr.StrField" sortMissingLast="true" />
+ <fieldType name="long" class="solr.TrieLongField" precisionStep="0" positionIncrementGap="0"/>
  <field name="_version_" type="long" indexed="true" stored="true" multiValued="false" />
  <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" /> 
  <field name="cat" type="string" indexed="true" stored="true"/>
